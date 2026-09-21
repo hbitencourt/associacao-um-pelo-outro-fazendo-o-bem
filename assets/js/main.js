@@ -24,12 +24,66 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (toggle && links) {
+    const openIcon = toggle.querySelector(".icon-menu-open");
+    const closeIcon = toggle.querySelector(".icon-menu-close");
     toggle.addEventListener("click", () => {
       links.classList.toggle("open");
       const isOpen = links.classList.contains("open");
       toggle.setAttribute("aria-expanded", isOpen);
-      toggle.textContent = isOpen ? "✕" : "☰";
+      if (openIcon && closeIcon) {
+        openIcon.style.display = isOpen ? "none" : "";
+        closeIcon.style.display = isOpen ? "" : "none";
+      }
     });
+  }
+
+  /* ---- carrossel de últimas ações (hero da home) ---- */
+  const spotlightTrack = document.getElementById("spotlight-track");
+  if (spotlightTrack) {
+    const slides = Array.from(spotlightTrack.querySelectorAll(".spotlight-slide"));
+    const dots = Array.from(document.querySelectorAll(".spotlight-dot"));
+    const prevBtn = document.getElementById("spotlight-prev");
+    const nextBtn = document.getElementById("spotlight-next");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let current = 0;
+    let timer = null;
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === current);
+        slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === current);
+        dot.setAttribute("aria-selected", i === current ? "true" : "false");
+      });
+    }
+
+    function startAutoplay() {
+      if (reduceMotion) return;
+      stopAutoplay();
+      timer = setInterval(() => goTo(current + 1), 6000);
+    }
+    function stopAutoplay() {
+      if (timer) clearInterval(timer);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => { goTo(current - 1); startAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => { goTo(current + 1); startAutoplay(); });
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => { goTo(parseInt(dot.dataset.index, 10)); startAutoplay(); });
+    });
+
+    const spotlightSection = spotlightTrack.closest(".spotlight");
+    if (spotlightSection) {
+      spotlightSection.addEventListener("mouseenter", stopAutoplay);
+      spotlightSection.addEventListener("mouseleave", startAutoplay);
+      spotlightSection.addEventListener("focusin", stopAutoplay);
+      spotlightSection.addEventListener("focusout", startAutoplay);
+    }
+
+    startAutoplay();
   }
 
   /* ---- animação de entrada ao rolar ---- */
@@ -160,11 +214,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.execCommand("copy");
         document.body.removeChild(ta);
       }
-      const original = pixCopyBtn.textContent;
-      pixCopyBtn.textContent = "Copiado ✓";
+      const original = pixCopyBtn.innerHTML;
+      pixCopyBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Copiado';
       pixCopyBtn.classList.add("copied");
       setTimeout(() => {
-        pixCopyBtn.textContent = original;
+        pixCopyBtn.innerHTML = original;
         pixCopyBtn.classList.remove("copied");
       }, 2200);
     });

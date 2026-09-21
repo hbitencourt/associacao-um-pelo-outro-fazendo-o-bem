@@ -25,7 +25,7 @@
   --success-border: #2f8f52;
 
   /* --- tipografia --- */
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "Baloo 2", "Nunito", "Segoe UI", sans-serif;
   --font-body: "Work Sans", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
@@ -104,6 +104,28 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 2px;
 }
+
+/* ---------- ícones (substituem emojis, mesmo estilo em todo o site) ---------- */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.node-icon .icon { width: 22px; height: 22px; }
+.placeholder-icon .icon { width: 34px; height: 34px; }
+.fill-badge .icon, .demo-badge .icon { width: 14px; height: 14px; }
+.a11y-bar button .icon { width: 13px; height: 13px; }
+.nav-toggle .icon { width: 22px; height: 22px; }
+.pix-copy-btn .icon { width: 15px; height: 15px; }
+.footer-social .icon { width: 17px; height: 17px; }
+.spotlight-arrow .icon { width: 20px; height: 20px; }
+.donation-list .icon { width: 17px; height: 17px; color: var(--gold); }
+.donation-list li { display: flex; align-items: center; gap: 10px; }
 
 /* ---------- botões ---------- */
 .btn {
@@ -278,6 +300,72 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
   .nav-actions .btn-outline { display: none; }
 }
 
+/* ---------- destaque de últimas ações (carrossel, primeira coisa na home) ---------- */
+.spotlight {
+  background: var(--baltic-dark);
+  color: var(--white);
+  padding: 40px 0 32px;
+  overflow: hidden;
+}
+.spotlight-track { position: relative; }
+.spotlight-slide {
+  display: none;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+.spotlight-slide.is-active { display: grid; }
+.spotlight-body .eyebrow { color: var(--gold); }
+.spotlight-body .eyebrow::before { background: var(--white); }
+.spotlight-body h2 { color: var(--white); font-size: clamp(1.4rem, 3vw, 2rem); margin: 14px 0 12px; }
+.spotlight-body p { color: rgba(255,255,255,0.82); max-width: 46ch; margin-bottom: 22px; }
+.spotlight-media {
+  height: 260px;
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--baltic), var(--baltic-light));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--white);
+}
+.spotlight-media .icon { width: 50px; height: 50px; }
+.spotlight-media-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 0 16px;
+}
+.spotlight-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+.spotlight-arrow {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3); background: transparent; color: var(--white);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.spotlight-arrow:hover { border-color: var(--gold); color: var(--gold); }
+.spotlight-dots { display: flex; gap: 8px; }
+.spotlight-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.spotlight-dot.is-active { background: var(--gold); width: 22px; border-radius: 999px; }
+
+@media (max-width: 860px) {
+  .spotlight-slide { grid-template-columns: 1fr; }
+  .spotlight-media { height: 200px; order: -1; }
+  .spotlight { padding: 32px 0 26px; }
+}
+
 /* ---------- hero ---------- */
 .hero {
   background: var(--baltic);
@@ -360,7 +448,7 @@ section { padding: 84px 0; }
   border-radius: 50%;
   background: var(--surface-alt);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
+  color: var(--baltic);
 }
 .node-card h3 { font-size: 1.08rem; }
 .node-card p { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
@@ -533,6 +621,7 @@ section { padding: 84px 0; }
 .pix-copy-btn {
   background: var(--baltic); color: var(--white); border: none; border-radius: 999px;
   padding: 10px 18px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
 }
 .pix-copy-btn:hover { background: var(--baltic-light); }
 .pix-copy-btn.copied { background: #2f8f52; }

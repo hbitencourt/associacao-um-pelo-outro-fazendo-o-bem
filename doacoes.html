@@ -6,7 +6,7 @@
 <title>Doações — Um Pelo Outro Fazendo o Bem</title>
 <link rel="icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
     <span style="margin-right:auto; opacity:.7;">Acessibilidade:</span>
     <button id="a11y-font-dec" aria-label="Diminuir tamanho da fonte">A-</button>
     <button id="a11y-font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
-    <button id="a11y-contrast" aria-label="Alternar alto contraste">◐ Alto contraste</button>
+    <button id="a11y-contrast" aria-label="Alternar alto contraste"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></svg> Alto contraste</button>
   </div>
 </div>
 
@@ -42,7 +42,10 @@
     <div class="nav-actions">
       <a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
       <a href="doacoes.html" class="btn btn-primary">Doar agora</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="icon icon-menu-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon icon-menu-close" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
     </div>
   </nav>
 </header>
@@ -61,7 +64,7 @@
   <div class="container" style="display:grid; grid-template-columns:1fr 0.85fr; gap:40px; align-items:flex-start;">
 
     <div class="form-card reveal">
-      <span class="demo-badge">⚠ tela de demonstração — o pagamento por cartão ainda não processa cobrança real; o PIX abaixo é um exemplo e precisa ser trocado pela chave oficial da Associação</span>
+      <span class="demo-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 9v5"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none"/></svg> tela de demonstração — o pagamento por cartão ainda não processa cobrança real; o PIX abaixo é um exemplo e precisa ser trocado pela chave oficial da Associação</span>
 
       <div class="field">
         <label>Escolha um valor (opcional, ajuda a organizar sua doação)</label>
@@ -139,11 +142,11 @@
         <p style="font-family:var(--font-mono); font-size:2.2rem; margin-top:14px;">R$ <span id="summary-value">20</span></p>
         <hr style="border:none; border-top:1px solid rgba(255,255,255,0.2); margin:20px 0;">
         <span class="eyebrow" style="color:var(--gold);">Para onde vai</span>
-        <ul style="font-size:0.88rem; color:rgba(255,255,255,0.82); display:flex; flex-direction:column; gap:10px; margin-top:12px;">
-          <li>🍲 Refeições da Cozinha Solidária</li>
-          <li>💊 Medicamentos da Farmácia Solidária</li>
-          <li>📚 Material do reforço escolar</li>
-          <li>🎁 Campanhas de Páscoa e Natal</li>
+        <ul class="donation-list" style="font-size:0.88rem; color:rgba(255,255,255,0.82); display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z"/><path d="M2 12h20"/><path d="M9 4c-.8.8-.8 1.6 0 2.4M13 3c-.8.8-.8 1.6 0 2.4M17 4c-.8.8-.8 1.6 0 2.4"/></svg> Refeições da Cozinha Solidária</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg> Medicamentos da Farmácia Solidária</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5v18H6a2 2 0 0 1-2-2Z"/><path d="M20 5a2 2 0 0 0-2-2h-5v18h5a2 2 0 0 0 2-2Z"/></svg> Material do reforço escolar</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.5"/><path d="M3 9V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/><path d="M12 9v11"/><path d="M12 7c-1-2.5-2.8-3.8-4.5-3.2C6 4.2 5.6 6 7 7.4c1 .9 3 .8 5-.4Z"/><path d="M12 7c1-2.5 2.8-3.8 4.5-3.2C18 4.2 18.4 6 17 7.4c-1 .9-3 .8-5-.4Z"/></svg> Campanhas de Páscoa e Natal</li>
         </ul>
       </div>
     </div>
@@ -159,7 +162,7 @@
       <div>
         <div class="footer-brand"><img src="assets/img/logo.png" alt="">Um Pelo Outro Fazendo o Bem</div>
         <p style="max-width:34ch; font-size:0.88rem;">Associação sem fins lucrativos no Campo Limpo, São Paulo. Cuidando de pessoas desde 2018.</p>
-        <div class="footer-social"><a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" aria-label="Instagram">IG</a></div>
+        <div class="footer-social"><a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a></div>
       </div>
       <div><h4>Navegação</h4><ul><li><a href="index.html">Início</a></li><li><a href="acoes.html">Ações</a></li><li><a href="doacoes.html">Doações</a></li><li><a href="contato.html">Contato</a></li></ul></div>
       <div><h4>Doar</h4><ul><li><a href="doacoes.html">PIX copia e cola</a></li><li><a href="doacoes.html">Cartão</a></li></ul></div>

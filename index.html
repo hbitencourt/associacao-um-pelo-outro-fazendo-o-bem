@@ -7,7 +7,7 @@
 <meta name="description" content="Associação Um Pelo Outro Fazendo o Bem: 8 anos cuidando de pessoas em situação de vulnerabilidade no Campo Limpo, São Paulo. Cozinha Solidária, Projeto Ginástica, reforço escolar e mais.">
 <link rel="icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
     <span style="margin-right:auto; opacity:.7;">Acessibilidade:</span>
     <button id="a11y-font-dec" aria-label="Diminuir tamanho da fonte">A-</button>
     <button id="a11y-font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
-    <button id="a11y-contrast" aria-label="Alternar alto contraste">◐ Alto contraste</button>
+    <button id="a11y-contrast" aria-label="Alternar alto contraste"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></svg> Alto contraste</button>
   </div>
 </div>
 
@@ -49,12 +49,91 @@
     <div class="nav-actions">
       <a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Abrir Instagram da Associação (nova aba)">Instagram</a>
       <a href="doacoes.html" class="btn btn-primary">Doar agora</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="icon icon-menu-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon icon-menu-close" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
     </div>
   </nav>
 </header>
 
 <main id="conteudo">
+
+<!-- ===== DESTAQUE DE ÚLTIMAS AÇÕES (carrossel) ===== -->
+<section class="spotlight" aria-label="Últimas ações em destaque">
+  <div class="container">
+    <div class="spotlight-track" id="spotlight-track">
+
+      <article class="spotlight-slide is-active" aria-hidden="false" role="group" aria-roledescription="slide" aria-label="Ação 1 de 4">
+        <div class="spotlight-body">
+          <span class="eyebrow">Última ação</span>
+          <h2>Cozinha Solidária serve mais de 300 refeições por dia</h2>
+          <p>Todos os dias preparamos e distribuímos refeições para pessoas em situação de vulnerabilidade no Jardim Rosana.</p>
+          <a href="acoes.html" class="btn btn-primary">Ver todas as ações →</a>
+        </div>
+        <div class="spotlight-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z"/><path d="M2 12h20"/><path d="M9 4c-.8.8-.8 1.6 0 2.4M13 3c-.8.8-.8 1.6 0 2.4M17 4c-.8.8-.8 1.6 0 2.4"/></svg>
+          <span class="spotlight-media-tag">foto da Cozinha Solidária em breve</span>
+        </div>
+      </article>
+
+      <article class="spotlight-slide" aria-hidden="true" role="group" aria-roledescription="slide" aria-label="Ação 2 de 4">
+        <div class="spotlight-body">
+          <span class="eyebrow">Última ação</span>
+          <h2>Ginástica das Mais Lindas segue com turmas cheias</h2>
+          <p>Aulas de ginástica e pilates durante a semana e aos sábados reúnem mais de 400 pessoas.</p>
+          <a href="acoes.html" class="btn btn-primary">Ver todas as ações →</a>
+        </div>
+        <div class="spotlight-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-9 2 2h4"/></svg>
+          <span class="spotlight-media-tag">foto do Projeto Ginástica em breve</span>
+        </div>
+      </article>
+
+      <article class="spotlight-slide" aria-hidden="true" role="group" aria-roledescription="slide" aria-label="Ação 3 de 4">
+        <div class="spotlight-body">
+          <span class="eyebrow">Última ação</span>
+          <h2>Reforço escolar apoia crianças e jovens da comunidade</h2>
+          <p>Aulas de apoio e cursos gratuitos ajudam estudantes a irem além na escola e na vida.</p>
+          <a href="acoes.html" class="btn btn-primary">Ver todas as ações →</a>
+        </div>
+        <div class="spotlight-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h5v18H6a2 2 0 0 1-2-2Z"/><path d="M20 5a2 2 0 0 0-2-2h-5v18h5a2 2 0 0 0 2-2Z"/></svg>
+          <span class="spotlight-media-tag">foto do reforço escolar em breve</span>
+        </div>
+      </article>
+
+      <article class="spotlight-slide" aria-hidden="true" role="group" aria-roledescription="slide" aria-label="Ação 4 de 4">
+        <div class="spotlight-body">
+          <span class="eyebrow">Última ação</span>
+          <h2>Farmácia Solidária amplia o acesso à saúde</h2>
+          <p>Distribuição de medicamentos para famílias em situação de vulnerabilidade da região.</p>
+          <a href="acoes.html" class="btn btn-primary">Ver todas as ações →</a>
+        </div>
+        <div class="spotlight-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+          <span class="spotlight-media-tag">foto da Farmácia Solidária em breve</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="spotlight-controls">
+      <button type="button" class="spotlight-arrow" id="spotlight-prev" aria-label="Ação anterior">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="spotlight-dots" id="spotlight-dots" role="tablist" aria-label="Selecionar ação em destaque">
+        <button type="button" class="spotlight-dot is-active" data-index="0" role="tab" aria-selected="true" aria-label="Ação 1"></button>
+        <button type="button" class="spotlight-dot" data-index="1" role="tab" aria-selected="false" aria-label="Ação 2"></button>
+        <button type="button" class="spotlight-dot" data-index="2" role="tab" aria-selected="false" aria-label="Ação 3"></button>
+        <button type="button" class="spotlight-dot" data-index="3" role="tab" aria-selected="false" aria-label="Ação 4"></button>
+      </div>
+      <button type="button" class="spotlight-arrow" id="spotlight-next" aria-label="Próxima ação">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
@@ -92,25 +171,25 @@
 
     <div class="node-map">
       <a href="#quem-somos" class="node-card reveal">
-        <div class="node-icon" aria-hidden="true">💛</div>
+        <div class="node-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21c-4.2-2.8-9-6.6-9-11.2C3 6.6 5.4 4 8.4 4c1.6 0 3 .8 3.6 2 .6-1.2 2-2 3.6-2 3 0 5.4 2.6 5.4 5.8 0 4.6-4.8 8.4-9 11.2Z"/></svg></div>
         <h3>Quem somos</h3>
         <p>Nossa história, missão e os valores que guiam cada ação desde 2018.</p>
         <span class="node-link">Ver nesta página ↓</span>
       </a>
       <a href="acoes.html" class="node-card reveal">
-        <div class="node-icon" aria-hidden="true">🤝</div>
+        <div class="node-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="9.5" r="2.4"/><path d="M3.5 20v-1.2A4.3 4.3 0 0 1 7.8 14.5h1.4a4.3 4.3 0 0 1 4.1 3"/><path d="M14.5 20v-.9a3.4 3.4 0 0 1 2.6-3.3c1.6-.4 3.4.5 4 2v1.2"/></svg></div>
         <h3>Ações</h3>
         <p>Cozinha Solidária, Projeto Ginástica, reforço escolar, farmácia solidária e campanhas.</p>
         <span class="node-link">Ir para Ações →</span>
       </a>
       <a href="doacoes.html" class="node-card reveal">
-        <div class="node-icon" aria-hidden="true">❤️</div>
+        <div class="node-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.5"/><path d="M3 9V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/><path d="M12 9v11"/><path d="M12 7c-1-2.5-2.8-3.8-4.5-3.2C6 4.2 5.6 6 7 7.4c1 .9 3 .8 5-.4Z"/><path d="M12 7c1-2.5 2.8-3.8 4.5-3.2C18 4.2 18.4 6 17 7.4c-1 .9-3 .8-5-.4Z"/></svg></div>
         <h3>Doações</h3>
         <p>Contribua via PIX (copia e cola) ou cartão. Veja para onde vai cada doação.</p>
         <span class="node-link">Ir para Doações →</span>
       </a>
       <a href="contato.html" class="node-card reveal">
-        <div class="node-icon" aria-hidden="true">📍</div>
+        <div class="node-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.6"/></svg></div>
         <h3>Contato</h3>
         <p>WhatsApp, e-mail, Instagram e o endereço da Associação em Campo Limpo.</p>
         <span class="node-link">Ir para Contato →</span>
@@ -148,7 +227,7 @@
     </div>
     <div class="project-grid">
       <div class="project-card reveal">
-        <div class="project-media"><span class="placeholder-icon" aria-hidden="true">🍲</span><span class="placeholder-label">foto da Cozinha Solidária em breve</span></div>
+        <div class="project-media"><span class="placeholder-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z"/><path d="M2 12h20"/><path d="M9 4c-.8.8-.8 1.6 0 2.4M13 3c-.8.8-.8 1.6 0 2.4M17 4c-.8.8-.8 1.6 0 2.4"/></svg></span><span class="placeholder-label">foto da Cozinha Solidária em breve</span></div>
         <div class="project-body">
           <span class="project-tag">Segurança alimentar</span>
           <h3>Cozinha Solidária</h3>
@@ -156,7 +235,7 @@
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-media"><span class="placeholder-icon" aria-hidden="true">🏃‍♀️</span><span class="placeholder-label">foto do Projeto Ginástica em breve</span></div>
+        <div class="project-media"><span class="placeholder-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M3 12h4l2-7 4 14 2-9 2 2h4"/></svg></span><span class="placeholder-label">foto do Projeto Ginástica em breve</span></div>
         <div class="project-body">
           <span class="project-tag">Saúde e bem-estar</span>
           <h3>Ginástica das Mais Lindas</h3>
@@ -164,7 +243,7 @@
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-media"><span class="placeholder-icon" aria-hidden="true">📚</span><span class="placeholder-label">foto do reforço escolar em breve</span></div>
+        <div class="project-media"><span class="placeholder-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5v18H6a2 2 0 0 1-2-2Z"/><path d="M20 5a2 2 0 0 0-2-2h-5v18h5a2 2 0 0 0 2-2Z"/></svg></span><span class="placeholder-label">foto do reforço escolar em breve</span></div>
         <div class="project-body">
           <span class="project-tag">Educação</span>
           <h3>Reforço Escolar e Cursos</h3>
@@ -210,7 +289,7 @@
         <div class="footer-brand"><img src="assets/img/logo.png" alt="">Um Pelo Outro Fazendo o Bem</div>
         <p style="max-width:34ch; font-size:0.88rem;">Associação sem fins lucrativos no Campo Limpo, São Paulo. Cuidando de pessoas desde 2018.</p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
         </div>
       </div>
       <div><h4>Navegação</h4><ul><li><a href="index.html">Início</a></li><li><a href="acoes.html">Ações</a></li><li><a href="doacoes.html">Doações</a></li><li><a href="contato.html">Contato</a></li></ul></div>
