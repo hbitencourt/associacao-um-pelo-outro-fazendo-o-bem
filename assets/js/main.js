@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const summaryValue = document.getElementById("summary-value");
 
   function updateSummary(value) {
-    if (summaryValue) summaryValue.textContent = `R$ ${value}`;
+    if (summaryValue) summaryValue.textContent = value;
   }
   amountButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
