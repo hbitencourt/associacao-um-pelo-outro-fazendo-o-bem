@@ -87,7 +87,7 @@ h1, h2, h3, h4 {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--black);
+  background: var(--baltic-dark);
   color: var(--white);
   padding: 12px 20px;
   z-index: 999;
@@ -123,8 +123,8 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
 .btn-primary { background: var(--baltic); color: var(--white); }
 .btn-primary:hover { background: var(--baltic-light); box-shadow: 0 8px 20px rgba(35,87,137,0.3); }
 
-.btn-dark { background: var(--black); color: var(--white); }
-.btn-dark:hover { background: #262523; }
+.btn-dark { background: var(--baltic-dark); color: var(--white); }
+.btn-dark:hover { background: var(--baltic); }
 
 .btn-outline { background: transparent; border-color: var(--black); color: var(--black); }
 .btn-outline:hover { background: var(--black); color: var(--white); }
@@ -139,7 +139,7 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--black);
+  background: var(--baltic-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,7 +186,7 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
 
 /* ---------- barra de acessibilidade ---------- */
 .a11y-bar {
-  background: var(--black);
+  background: var(--baltic-dark);
   color: var(--white);
   font-size: 0.78rem;
 }
@@ -333,7 +333,7 @@ section { padding: 84px 0; }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-top: 12px; }
 .section-head p { color: var(--ink-soft); margin-top: 14px; font-size: 1.02rem; }
 .section-alt { background: var(--surface-alt); }
-.section-dark { background: var(--black); color: var(--white); }
+.section-dark { background: var(--baltic-dark); color: var(--white); }
 .section-dark h2, .section-dark h3 { color: var(--white); }
 .section-dark .section-head p { color: rgba(255,255,255,0.75); }
 
@@ -466,7 +466,7 @@ section { padding: 84px 0; }
 }
 
 /* ---------- citação ---------- */
-.quote-band { background: var(--black); color: var(--white); padding: 66px 0; }
+.quote-band { background: var(--baltic-dark); color: var(--white); padding: 66px 0; }
 .quote-band blockquote {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.4vw, 1.7rem);
@@ -570,7 +570,7 @@ section { padding: 84px 0; }
 .whatsapp-float svg { width: 28px; height: 28px; }
 
 /* ---------- footer ---------- */
-.site-footer { background: var(--black); color: rgba(255,255,255,0.72); padding: 56px 0 26px; }
+.site-footer { background: var(--baltic-dark); color: rgba(255,255,255,0.72); padding: 56px 0 26px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.14); }
 .footer-grid h4 { color: var(--white); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-body); margin-bottom: 16px; }
 .footer-grid ul li { margin-bottom: 10px; }
@@ -587,7 +587,7 @@ section { padding: 84px 0; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 
 /* ---------- página interna ---------- */
-.page-hero { background: var(--black); color: var(--white); padding: 60px 0 50px; }
+.page-hero { background: var(--baltic-dark); color: var(--white); padding: 60px 0 50px; }
 .page-hero h1 { color: var(--white); margin-top: 12px; font-size: clamp(1.9rem, 3.8vw, 2.6rem); }
 .page-hero p { color: rgba(255,255,255,0.75); margin-top: 12px; max-width: 62ch; }
 
