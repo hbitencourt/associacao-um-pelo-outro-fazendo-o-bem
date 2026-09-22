@@ -164,6 +164,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ---- limpar formulário (heurística: controle do usuário e liberdade) ---- */
+  document.querySelectorAll("[data-clear-form]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const form = btn.closest("form");
+      if (!form) return;
+      form.reset();
+      form.querySelectorAll(".field").forEach((f) => f.classList.remove("invalid"));
+      const successBox = form.parentElement.querySelector(".form-success");
+      if (successBox) successBox.classList.remove("show");
+      const firstField = form.querySelector("input, select, textarea");
+      if (firstField) firstField.focus();
+    });
+  });
+
   /* ---- página de doação: valores sugeridos ---- */
   const amountButtons = document.querySelectorAll(".amount-btn");
   const customAmount = document.getElementById("custom-amount");

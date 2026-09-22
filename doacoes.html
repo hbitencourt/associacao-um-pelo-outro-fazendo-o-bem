@@ -41,7 +41,7 @@
     </ul>
     <div class="nav-actions">
       <a href="https://www.instagram.com/um_pelo_outro_fazendo_o_bem/" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
-      <a href="doacoes.html" class="btn btn-primary">Doar agora</a>
+      <a href="doacoes.html" class="btn btn-primary">Quero ajudar</a>
       <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
         <svg class="icon icon-menu-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="icon icon-menu-close" viewBox="0 0 24 24" aria-hidden="true" style="display:none;"><path d="M5 5l14 14M19 5 5 19"/></svg>
@@ -131,7 +131,10 @@
 
           <div class="form-success">Doação simulada com sucesso! Em produção, aqui entraria um provedor de pagamento real (Mercado Pago, Stripe ou PagSeguro).</div>
 
-          <button type="submit" class="btn btn-primary btn-block">Confirmar doação</button>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" data-clear-form>Limpar campos</button>
+            <button type="submit" class="btn btn-primary">Confirmar doação</button>
+          </div>
         </form>
       </div>
     </div>
@@ -151,6 +154,36 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== FAQ (heurística: ajuda e documentação) ===== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ajuda</span>
+      <h2>Perguntas frequentes sobre doação.</h2>
+      <p>Ainda com dúvida sobre como ou para onde vai sua doação? Aqui estão as respostas mais comuns.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Por que a chave PIX é o CNPJ da Associação?</summary>
+        <p>O CNPJ mostrado na aba PIX é a chave oficial cadastrada pela Associação Um Pelo Outro Fazendo o Bem. Usar o CNPJ garante que o valor caia direto na conta da instituição, e não em uma conta pessoal.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Como eu confirmo que a doação chegou?</summary>
+        <p>Depois de fazer o PIX, você pode enviar o comprovante pelo WhatsApp para receber a confirmação. É rápido e você fala direto com a equipe.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>O pagamento por cartão nesta página já é real?</summary>
+        <p>Ainda não. Esta é uma tela de demonstração: o formulário de cartão simula o fluxo, mas nenhuma cobrança é processada. Em produção, entraria um provedor de pagamento real.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Posso doar um valor diferente dos sugeridos (R$ 20, R$ 50, R$ 100, R$ 200)?</summary>
+        <p>Sim. Use o campo "Outro valor (R$)" acima dos botões de valor para digitar o valor que quiser doar.</p>
+      </details>
+    </div>
   </div>
 </section>
 

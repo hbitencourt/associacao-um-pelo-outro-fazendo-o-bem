@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 
 /* ---------- foco visível em tudo (WCAG operável) ---------- */
 a:focus-visible, button:focus-visible, input:focus-visible,
-textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 2px;
 }
@@ -302,8 +302,6 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
 /* ---------- destaque de últimas ações (carrossel, primeira coisa na home) ---------- */
 .spotlight {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--white);
   padding: 40px 0 32px;
   overflow: hidden;
@@ -423,13 +421,9 @@ section { padding: 84px 0; }
 .section-head p { color: var(--ink-soft); margin-top: 14px; font-size: 1.02rem; }
 .section-alt {
   background: var(--surface-alt);
-  background-image: radial-gradient(rgba(2,1,0,0.05) 1px, transparent 1px);
-  background-size: 22px 22px;
 }
 .section-dark {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--white);
 }
 .section-dark h2, .section-dark h3 { color: var(--white); }
@@ -566,8 +560,6 @@ section { padding: 84px 0; }
 /* ---------- citação ---------- */
 .quote-band {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--white);
   padding: 66px 0;
 }
@@ -583,8 +575,6 @@ section { padding: 84px 0; }
 .form-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); padding: 36px; }
 .form-card.section-dark {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--white);
 }
 .field { margin-bottom: 20px; }
@@ -608,6 +598,39 @@ section { padding: 84px 0; }
   color: #1d5c34; padding: 16px 18px; border-radius: var(--radius-sm); font-size: 0.9rem; margin-bottom: 20px;
 }
 .form-success.show { display: block; }
+.form-actions { display: flex; gap: 12px; }
+.form-actions .btn { flex: 1; }
+@media (max-width: 480px) { .form-actions { flex-direction: column-reverse; } }
+
+/* ---------- FAQ (heurística: ajuda e documentação) ---------- */
+.faq-list { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--black);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--baltic);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { color: var(--ink-soft); margin-top: 12px; font-size: 0.92rem; line-height: 1.6; }
 
 /* ---------- doações: valores e PIX ---------- */
 .amount-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
@@ -683,8 +706,6 @@ section { padding: 84px 0; }
 /* ---------- footer ---------- */
 .site-footer {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: rgba(255,255,255,0.72);
   padding: 56px 0 26px;
 }
@@ -706,8 +727,6 @@ section { padding: 84px 0; }
 /* ---------- página interna ---------- */
 .page-hero {
   background: var(--baltic-dark);
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
   color: var(--white);
   padding: 60px 0 50px;
 }
