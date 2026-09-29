@@ -1,17 +1,25 @@
 /* =========================================================
    UM PELO OUTRO FAZENDO O BEM — sistema de design
-   Paleta obrigatória: porcelain, black, baltic blue, bright gold.
-   O dourado é usado SÓ em detalhes pequenos (nunca em áreas grandes).
+   Paleta alinhada à identidade visual da logo: azul (marca/texto),
+   dourado, coral, roxo, verde-azulado e laranja (mãos e figuras).
+   Azul segue como cor primária; as demais entram como acentos
+   (tags de categoria, ícones de navegação, pequenos detalhes).
    ========================================================= */
 
 :root {
-  /* --- paleta obrigatória --- */
+  /* --- paleta principal (logo) --- */
   --porcelain: #fdfffc;
   --black: #020100;
-  --baltic: #235789;
-  --baltic-light: #3f7bb0;
-  --baltic-dark: #142f47;
-  --gold: #f1d302;      /* só detalhes: sublinhado fino, ícone, badge, foco */
+  --baltic: #1b5fae;
+  --baltic-light: #3f82cc;
+  --baltic-dark: #123f73;
+  --gold: #f5a623;       /* mão dourada da logo — detalhes: sublinhado fino, ícone, badge, foco */
+
+  /* --- cores de acento (figuras da logo) --- */
+  --coral: #e9576b;      /* mão vermelha/coral */
+  --purple: #7d4e9e;     /* figura roxa */
+  --teal: #167e72;       /* figura verde-azulada */
+  --orange: #f0862e;     /* figura laranja */
 
   /* --- tons derivados (para hierarquia, sem ferir a paleta) --- */
   --surface: var(--porcelain);
@@ -142,7 +150,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .btn:active { transform: translateY(1px); }
 
 .btn-primary { background: var(--baltic); color: var(--white); }
-.btn-primary:hover { background: var(--baltic-light); box-shadow: 0 8px 20px rgba(35,87,137,0.3); }
+.btn-primary:hover { background: var(--baltic-light); box-shadow: 0 8px 20px rgba(27,95,174,0.3); }
 
 .btn-dark { background: var(--baltic-dark); color: var(--white); }
 .btn-dark:hover { background: var(--baltic); }
@@ -186,7 +194,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
   position: absolute;
   inset: -10px;
   border-radius: 50%;
-  border: 3px solid rgba(241, 211, 2, 0.25);
+  border: 3px solid rgba(245, 166, 35, 0.25);
   border-top-color: var(--gold);
   animation: spin 0.9s linear infinite;
 }
@@ -202,7 +210,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .loader-text strong { color: var(--gold); }
 
 @media (prefers-reduced-motion: reduce) {
-  .loader-ring { animation: none; border-top-color: rgba(241,211,2,0.6); }
+  .loader-ring { animation: none; border-top-color: rgba(245,166,35,0.6); }
 }
 
 /* ---------- barra de acessibilidade ---------- */
@@ -381,7 +389,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(241,211,2,0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(245,166,35,0.18), transparent 70%);
 }
 
 .hero-grid {
@@ -454,6 +462,11 @@ section { padding: 84px 0; }
   display: flex; align-items: center; justify-content: center;
   color: var(--baltic);
 }
+/* cada nó do hub ganha uma cor das figuras da logo */
+.node-icon.icon-coral { background: rgba(233,87,107,0.12); color: var(--coral); }
+.node-icon.icon-teal { background: rgba(22,126,114,0.12); color: var(--teal); }
+.node-icon.icon-gold { background: rgba(245,166,35,0.16); color: #a67415; }
+.node-icon.icon-purple { background: rgba(125,78,158,0.12); color: var(--purple); }
 .node-card h3 { font-size: 1.08rem; }
 .node-card p { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
 .node-link { font-size: 0.86rem; font-weight: 600; color: var(--baltic); display: inline-flex; align-items: center; gap: 6px; }
@@ -540,6 +553,12 @@ section { padding: 84px 0; }
   border-radius: 999px;
   margin-top: 10px;
 }
+/* variações de cor por categoria, ecoando as figuras coloridas da logo */
+.project-tag.tag-teal { color: var(--teal); background: rgba(22,126,114,0.12); }
+.project-tag.tag-coral { color: var(--coral); background: rgba(233,87,107,0.12); }
+.project-tag.tag-purple { color: var(--purple); background: rgba(125,78,158,0.12); }
+.project-tag.tag-orange { color: var(--orange); background: rgba(240,134,46,0.12); }
+.project-tag.tag-gold { color: #a67415; background: rgba(245,166,35,0.16); }
 
 /* ---------- selo de "modelo a preencher" (transparência de conteúdo pendente) ---------- */
 .fill-badge {
