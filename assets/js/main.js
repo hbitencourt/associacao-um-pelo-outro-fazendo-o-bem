@@ -144,7 +144,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const field = input.closest(".field");
         if (!field) return;
         let ok = input.value.trim() !== "";
-        if (ok && input.type === "email") ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+
+        if (ok && input.type === "email") {
+          ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+        } else if (ok && input.id === "don-nome") {
+          // exige nome e sobrenome (pelo menos duas palavras)
+          ok = input.value.trim().split(/\s+/).filter(Boolean).length >= 2;
+        } else if (ok && input.id === "card-number") {
+          ok = input.value.replace(/\D/g, "").length === 16;
+        } else if (ok && input.id === "card-expiry") {
+          const m = input.value.match(/^(\d{2})\/(\d{2})$/);
+          if (!m) {
+            ok = false;
+          } else {
+            const month = parseInt(m[1], 10);
+            const year = 2000 + parseInt(m[2], 10);
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth() + 1;
+            ok = month >= 1 && month <= 12 &&
+              (year > currentYear || (year === currentYear && month >= currentMonth));
+          }
+        } else if (ok && input.id === "card-cvv") {
+          ok = /^\d{3,4}$/.test(input.value.trim());
+        }
 
         field.classList.toggle("invalid", !ok);
         if (!ok) { valid = false; if (!firstInvalid) firstInvalid = input; }

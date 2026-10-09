@@ -99,8 +99,8 @@
           <div class="field-row">
             <div class="field">
               <label for="don-nome">Nome completo</label>
-              <input type="text" id="don-nome" name="nome" required>
-              <span class="field-error">Digite seu nome completo.</span>
+              <input type="text" id="don-nome" name="nome" autocomplete="name" required>
+              <span class="field-error">Digite seu nome e sobrenome.</span>
             </div>
             <div class="field">
               <label for="don-email">E-mail</label>
@@ -113,21 +113,21 @@
             <label for="card-number">Número do cartão</label>
             <div class="card-preview">
               <svg viewBox="0 0 32 22" aria-hidden="true"><rect width="32" height="22" rx="3" fill="#1B5FAE"/><rect y="6" width="32" height="4" fill="#F5A623"/></svg>
-              <input type="text" id="card-number" name="cartao" placeholder="0000 0000 0000 0000" required style="border:none; background:transparent; padding-left:0;">
+              <input type="text" id="card-number" name="cartao" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" required style="border:none; background:transparent; padding-left:0;">
             </div>
-            <span class="field-error">Digite um número de cartão.</span>
+            <span class="field-error">Digite os 16 números do cartão.</span>
           </div>
 
           <div class="field-row">
             <div class="field">
               <label for="card-expiry">Validade</label>
-              <input type="text" id="card-expiry" name="validade" placeholder="MM/AA" required>
-              <span class="field-error">Digite a validade.</span>
+              <input type="text" id="card-expiry" name="validade" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" required>
+              <span class="field-error">Digite uma validade no formato MM/AA que ainda não tenha vencido.</span>
             </div>
             <div class="field">
               <label for="card-cvv">CVV</label>
-              <input type="text" id="card-cvv" name="cvv" placeholder="123" maxlength="4" required>
-              <span class="field-error">Digite o CVV.</span>
+              <input type="text" id="card-cvv" name="cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required>
+              <span class="field-error">Digite um CVV válido (3 ou 4 números).</span>
             </div>
           </div>
 
