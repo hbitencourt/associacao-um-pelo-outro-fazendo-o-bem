@@ -458,6 +458,10 @@ section { padding: 84px 0; position: relative; }
 .project-tag.tag-orange { color: #a84800; background: rgba(240,122,46,0.12); }
 .project-tag.tag-gold   { color: #7d5900; background: rgba(252,177,23,0.16); }
 
+.project-card[data-gallery] { cursor: pointer; }
+.project-gallery-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; font-weight: 700; color: var(--coral-action); margin-top: 12px; }
+.project-card[data-gallery]:hover .project-gallery-hint { color: var(--coral-dark); }
+
 /* --- QUOTE BAND --- */
 .quote-band { background: var(--navy-deep); color: var(--white); padding: 66px 0; }
 .quote-band blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.7rem); max-width: 780px; line-height: 1.45; }
@@ -510,6 +514,23 @@ section { padding: 84px 0; position: relative; }
 .pix-copy-btn:hover { background: var(--coral-dark); }
 .pix-copy-btn.copied { background: #2f8f52; }
 
+/* --- BLOCO "OUTRAS FORMAS DE AJUDAR" (doações) --- */
+.support-banner {
+  background: var(--navy); color: var(--white); border-radius: var(--radius);
+  padding: 44px; display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden;
+}
+.support-banner-text { flex: 1; min-width: 260px; }
+.support-banner h2 { color: var(--white); margin-top: 10px; font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.support-banner p { color: rgba(255,255,255,0.85); margin-top: 12px; max-width: 54ch; }
+.support-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.support-banner .btn.copied { background: #2f8f52; color: var(--white); }
+@media (max-width: 760px) {
+  .support-banner { flex-direction: column; align-items: flex-start; padding: 32px 26px; }
+  .support-banner-actions { width: 100%; }
+  .support-banner-actions .btn { flex: 1; }
+}
+
 .card-preview { border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--cream); padding: 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
 .card-preview svg { width: 34px; height: 24px; flex-shrink: 0; }
 
@@ -517,6 +538,38 @@ section { padding: 84px 0; position: relative; }
 .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 80; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(0,0,0,0.25); transition: transform 0.15s ease; }
 .whatsapp-float:hover { transform: scale(1.1); }
 .whatsapp-float svg { width: 28px; height: 28px; }
+
+/* --- GALERIA EM POP-UP (cards de ação) --- */
+.gallery-modal { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; }
+.gallery-modal.open { display: flex; }
+.gallery-modal-overlay { position: absolute; inset: 0; background: rgba(20,17,12,0.6); }
+.gallery-modal-dialog {
+  position: relative; background: var(--white); border-radius: var(--radius);
+  max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
+  padding: 44px 40px; z-index: 1; box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.gallery-modal-close {
+  position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border-radius: 50%;
+  border: none; background: var(--cream); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-modal-close:hover { background: var(--border); }
+.gallery-modal-dialog h3 { margin-top: 10px; font-size: 1.5rem; }
+.gallery-modal-body { margin-top: 18px; }
+.gallery-modal-body p { color: var(--ink-soft); font-size: 0.95rem; }
+.gallery-modal-placeholder { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.gallery-modal-placeholder-item {
+  aspect-ratio: 1; background: var(--cream); border-radius: var(--radius-sm);
+  border: 1.5px dashed var(--border); color: var(--ink-soft);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  font-size: 0.78rem; text-align: center; padding: 14px;
+}
+.gallery-modal-placeholder-item .icon { width: 26px; height: 26px; color: var(--coral-action); }
+body.gallery-open { overflow: hidden; }
+@media (max-width: 560px) {
+  .gallery-modal-dialog { padding: 36px 24px; }
+  .gallery-modal-placeholder { grid-template-columns: 1fr; }
+}
 
 /* --- FOOTER --- */
 .site-footer { background: var(--navy-deep); color: rgba(255,255,255,0.75); padding: 56px 0 26px; }

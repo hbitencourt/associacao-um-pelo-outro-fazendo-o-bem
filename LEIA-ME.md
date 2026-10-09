@@ -57,8 +57,8 @@ O site não tenta ser a única porta de entrada: ele se conecta ativamente ao **
 
 Marquei claramente no próprio site (selo amarelo "⚠ modelo") tudo que está com espaço reservado:
 
-- **Fotos reais** dos projetos (Cozinha Solidária, Projeto Ginástica, reforço escolar, farmácia solidária, campanhas) — hoje estão com emoji + aviso de placeholder.
-- **Número real de WhatsApp** — hoje está `5511999999999`, que é fictício. Procure `wa.me/5511999999999` no VSCode (Ctrl+Shift+H) e troque em todos os arquivos pelo número real, no formato `55` + DDD + número, sem espaços ou símbolos.
+- ~~**Fotos reais** dos projetos~~ — já preenchidas (banco de imagens, aguardando fotos reais da Associação para substituir).
+- ~~**Número real de WhatsApp**~~ — já atualizado para `5511953512083` (+55 11 95351-2083) em todos os arquivos.
 - **Chave PIX real** — está em `doacoes.html`, na `div id="pix-key"`.
 - **E-mail real** — hoje é `contato@umpelooutro.org.br` (fictício), aparece em `contato.html`.
 - **Relatos de participantes** (como os mencionados no briefing sobre o Projeto Ginástica) — o material fala que podem ser usados mediante autorização; sugiro adicionar depois de confirmado com a Associação, respeitando a privacidade pedida no briefing.

@@ -280,6 +280,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ---- compartilhar o projeto (bloco "outras formas de ajudar", doações) ---- */
+  const shareBtn = document.getElementById("share-project-btn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", async () => {
+      const shareUrl = window.location.origin + window.location.pathname.replace(/doacoes\.html$/, "index.html");
+      const shareData = {
+        title: "Um Pelo Outro Fazendo o Bem",
+        text: "Conheça o trabalho da Associação Um Pelo Outro Fazendo o Bem e ajude a transformar realidades.",
+        url: shareUrl,
+      };
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (e) {
+          /* usuário cancelou o compartilhamento, sem problema */
+        }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = shareUrl;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      const original = shareBtn.innerHTML;
+      shareBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Link copiado!';
+      shareBtn.classList.add("copied");
+      setTimeout(() => {
+        shareBtn.innerHTML = original;
+        shareBtn.classList.remove("copied");
+      }, 2200);
+    });
+  }
+
   /* ---- máscara visual de cartão (só front-end, sem processar nada) ---- */
   const cardNumber = document.getElementById("card-number");
   if (cardNumber) {
@@ -293,6 +331,57 @@ document.addEventListener("DOMContentLoaded", () => {
     cardExpiry.addEventListener("input", () => {
       let digits = cardExpiry.value.replace(/\D/g, "").slice(0, 4);
       cardExpiry.value = digits.length > 2 ? digits.slice(0, 2) + "/" + digits.slice(2) : digits;
+    });
+  }
+
+  /* ---- galeria em pop-up dos cards de ação (acoes.html) ---- */
+  const galleryModal = document.getElementById("gallery-modal");
+  if (galleryModal) {
+    const modalTitle = document.getElementById("gallery-modal-title");
+    const modalBody = document.getElementById("gallery-modal-body");
+    let lastFocused = null;
+
+    function openGallery(card) {
+      const title = card.dataset.galleryTitle || "Fotos e vídeos";
+      modalTitle.textContent = title;
+      modalBody.innerHTML =
+        '<p>Em breve, fotos e vídeos desta ação direto do Instagram da Associação. Por enquanto, este é um modelo de exibição — os posts reais serão incorporados aqui assim que forem enviados.</p>' +
+        '<div class="gallery-modal-placeholder">' +
+          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> post do Instagram em breve</div>' +
+          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> post do Instagram em breve</div>' +
+        '</div>';
+      lastFocused = document.activeElement;
+      galleryModal.classList.add("open");
+      galleryModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("gallery-open");
+      galleryModal.querySelector(".gallery-modal-close").focus();
+    }
+
+    function closeGallery() {
+      galleryModal.classList.remove("open");
+      galleryModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gallery-open");
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll(".project-card[data-gallery]").forEach((card) => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-haspopup", "dialog");
+      card.addEventListener("click", () => openGallery(card));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openGallery(card);
+        }
+      });
+    });
+
+    galleryModal.querySelectorAll("[data-gallery-close]").forEach((el) => {
+      el.addEventListener("click", closeGallery);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && galleryModal.classList.contains("open")) closeGallery();
     });
   }
 });
