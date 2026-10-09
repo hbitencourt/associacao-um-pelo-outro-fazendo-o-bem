@@ -19,6 +19,24 @@
   });
 })();
 
+/* ---- validação de número de cartão (algoritmo de Luhn) ----
+   O mesmo teste usado por bandeiras de cartão para detectar números
+   inventados/digitados errado, mesmo que tenham 16 dígitos. */
+function luhnCheck(digits) {
+  let sum = 0;
+  let shouldDouble = false;
+  for (let i = digits.length - 1; i >= 0; i--) {
+    let n = parseInt(digits.charAt(i), 10);
+    if (shouldDouble) {
+      n *= 2;
+      if (n > 9) n -= 9;
+    }
+    sum += n;
+    shouldDouble = !shouldDouble;
+  }
+  return sum % 10 === 0;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   /* ---- menu mobile ---- */
   const toggle = document.querySelector(".nav-toggle");
@@ -151,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
           // exige nome e sobrenome (pelo menos duas palavras)
           ok = input.value.trim().split(/\s+/).filter(Boolean).length >= 2;
         } else if (ok && input.id === "card-number") {
-          ok = input.value.replace(/\D/g, "").length === 16;
+          const digits = input.value.replace(/\D/g, "");
+          ok = digits.length === 16 && luhnCheck(digits);
         } else if (ok && input.id === "card-expiry") {
           const m = input.value.match(/^(\d{2})\/(\d{2})$/);
           if (!m) {
