@@ -234,7 +234,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 /* --- formas orgânicas decorativas (elementos de canto) --- */
 .blob { position: absolute; z-index: 0; pointer-events: none; user-select: none; }
 .blob-flip { transform: scaleX(-1); }
-.spotlight .blob-tr { top: -34px; right: -26px; width: 160px; }
+.spotlight .blob-br { bottom: -20px; right: -80px; width: 260px; transform: rotate(-18deg); }
 .spotlight .blob-bl { bottom: -26px; left: -34px; width: 150px; }
 #quem-somos .blob-bl { bottom: -18px; left: -28px; width: 150px; }
 #quem-somos .blob-br { bottom: -18px; right: -26px; width: 140px; }
