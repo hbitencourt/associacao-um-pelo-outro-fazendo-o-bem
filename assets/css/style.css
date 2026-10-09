@@ -42,8 +42,10 @@
   --porcelain: var(--surface);
 
   /* --- tipografia --- */
-  --font-display: "Baloo 2", "Nunito", "Segoe UI", sans-serif;
-  --font-body: "Work Sans", "Segoe UI", sans-serif;
+  --font-chewy: "Chewy", "Baloo 2", cursive;
+  --font-display: "Comfortaa", "Nunito", "Segoe UI", sans-serif;
+  --font-accent: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Open Sans", "Segoe UI", sans-serif;
 
   /* --- layout --- */
   --max-width: 1180px;
@@ -55,8 +57,8 @@
 
 /* ---------- reset ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: calc(100% * var(--font-scale)); }
-body { font-family: var(--font-body); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; font-size: calc(100% * var(--font-scale)); overflow-x: hidden; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; max-width: 100vw; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
@@ -67,7 +69,7 @@ h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; 
 
 /* --- eyebrow --- */
 .eyebrow {
-  font-family: var(--font-body);
+  font-family: var(--font-accent);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -99,7 +101,6 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 /* --- ícones --- */
 .icon { width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .node-icon .icon { width: 22px; height: 22px; }
-.fill-badge .icon, .demo-badge .icon { width: 14px; height: 14px; }
 .a11y-bar button .icon { width: 13px; height: 13px; }
 .nav-toggle .icon { width: 22px; height: 22px; }
 .pix-copy-btn .icon { width: 15px; height: 15px; }
@@ -112,7 +113,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 13px 26px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
-  font-family: var(--font-body);
+  font-family: var(--font-accent);
   border: 2px solid transparent;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
@@ -150,6 +151,9 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .btn-white { background: var(--white); color: var(--navy); }
 .btn-white:hover { background: var(--cream); box-shadow: 0 8px 18px rgba(0,0,0,0.18); }
 
+.btn-gold { background: var(--gold); color: var(--navy-deep); }
+.btn-gold:hover { background: var(--gold-dark); box-shadow: 0 8px 20px rgba(252,177,23,0.4); }
+
 /* botão ícone do Instagram no header */
 .btn-icon-instagram {
   display: flex; align-items: center; justify-content: center;
@@ -181,9 +185,13 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 
 /* --- barra de acessibilidade --- */
 .a11y-bar { background: var(--navy-deep); color: var(--white); font-size: 0.78rem; }
-.a11y-bar .container { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding-top: 8px; padding-bottom: 8px; }
+.a11y-bar .container { display: flex; width: 100%; align-items: center; justify-content: flex-end; flex-wrap: wrap; row-gap: 6px; column-gap: 16px; padding-top: 8px; padding-bottom: 8px; }
 .a11y-bar button { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white); border-radius: 999px; padding: 4px 12px; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 6px; }
 .a11y-bar button:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 480px) {
+  .a11y-bar .container { justify-content: center; column-gap: 10px; }
+  .a11y-bar .container > span { margin-right: 0 !important; width: 100%; text-align: center; }
+}
 
 /* --- HEADER (creme, como no mockup) --- */
 .site-header {
@@ -191,7 +199,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
   background: var(--cream);
   box-shadow: 0 1px 0 rgba(28,43,69,0.07);
 }
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.nav { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 14px 0; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--navy-deep); font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; }
 .brand img { width: 52px; height: 52px; object-fit: contain; }
 
@@ -215,6 +223,23 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
   .nav-toggle { display: block; }
   .nav-actions .btn-outline { display: none; }
 }
+@media (max-width: 420px) {
+  .nav { flex-wrap: wrap; row-gap: 10px; }
+  .brand { font-size: 0.92rem; gap: 8px; }
+  .brand img { width: 40px; height: 40px; }
+  .nav-actions { gap: 8px; }
+  .nav-actions .btn-icon-instagram { display: none; }
+}
+
+/* --- formas orgânicas decorativas (elementos de canto) --- */
+.blob { position: absolute; z-index: 0; pointer-events: none; user-select: none; }
+.blob-flip { transform: scaleX(-1); }
+.spotlight .blob-tr { top: -34px; right: -26px; width: 160px; }
+.spotlight .blob-bl { bottom: -26px; left: -34px; width: 150px; }
+#quem-somos .blob-bl { bottom: -18px; left: -28px; width: 150px; }
+#quem-somos .blob-br { bottom: -18px; right: -26px; width: 140px; }
+.page-hero .blob-tr { top: -26px; right: -18px; width: 130px; }
+.page-hero .blob-bl { bottom: -26px; left: -18px; width: 120px; }
 
 /* --- SPOTLIGHT (carrossel) — cartão azul royal bem arredondado sobre fundo creme --- */
 .spotlight {
@@ -222,21 +247,6 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
   padding: 44px 0 36px;
   position: relative;
   overflow: hidden;
-}
-.spotlight::before {
-  content: "";
-  position: absolute; right: -90px; top: -120px;
-  width: 320px; height: 320px; border-radius: 50%;
-  background: var(--coral);
-  z-index: 0;
-}
-.spotlight::after {
-  content: "";
-  position: absolute; left: -110px; bottom: -140px;
-  width: 300px; height: 300px; border-radius: 50%;
-  background: var(--navy);
-  opacity: 0.55;
-  z-index: 0;
 }
 .spotlight-track { position: relative; z-index: 1; }
 .spotlight-slide {
@@ -261,7 +271,11 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 }
 .spotlight-body .eyebrow::before { display: none; }
 
-.spotlight-body h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 14px; }
+.spotlight-top-row { display: flex; align-items: center; gap: 16px; }
+.spotlight-top-row .eyebrow { margin-bottom: 0; }
+.spotlight-doodle { width: 62px; height: auto; flex-shrink: 0; margin-bottom: 14px; }
+
+.spotlight-body h2 { font-family: var(--font-chewy); font-weight: 400; color: var(--white); font-size: clamp(1.9rem, 3.6vw, 2.7rem); margin: 0 0 14px; }
 .spotlight-body p { color: rgba(255,255,255,0.88); max-width: 46ch; margin-bottom: 26px; font-size: 1rem; }
 .spotlight-body .accent { color: var(--coral-light); }
 .spotlight-body .btn-white,
@@ -296,39 +310,54 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .hero {
   background: var(--cream);
   color: var(--ink);
-  padding: 90px 0 76px;
+  padding: 90px 0 96px;
   position: relative;
-  overflow: hidden;
 }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.8fr; gap: 50px; align-items: center; position: relative; }
 .hero h1 { color: var(--ink); font-size: clamp(2.2rem, 4.4vw, 3.3rem); margin: 16px 0 20px; }
 .hero h1 em { font-style: normal; color: var(--coral-action); }
-.hero p.lead { color: var(--ink-soft); font-size: 1.06rem; max-width: 48ch; margin-bottom: 30px; }
+.hero p.lead { font-family: var(--font-accent); color: var(--ink-soft); font-size: 1.06rem; max-width: 48ch; margin-bottom: 30px; }
 .hero .lead .highlight { color: var(--coral-action); font-weight: 700; }
 .hero .eyebrow { color: var(--coral-action); }
 .hero .eyebrow::before { background: var(--coral); }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-cta .btn-outline-light { background: transparent; border-color: var(--navy); color: var(--navy); }
 .hero-cta .btn-outline-light:hover { border-color: var(--navy-deep); background: rgba(3,84,162,0.08); color: var(--navy-deep); }
-/* colagem de fotos do lado direito da seção de impacto */
+.hero-cta-stack { flex-direction: column; align-items: flex-start; }
+
+/* colagem de fotos do lado direito, com selos de estatística sobrepostos */
 .hero-photos { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; height: 420px; }
-.hero-photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 40px rgba(28,43,69,0.16); }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 40px rgba(28,43,69,0.16); }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-photo-main { height: 100%; border-radius: 28px 28px 28px 70px; }
 .hero-photo-stack { display: flex; flex-direction: column; gap: 18px; height: 100%; }
 .hero-photo-stack .hero-photo { flex: 1; border-radius: 24px; }
 .hero-photo-stack .hero-photo:first-child { border-radius: 24px 70px 24px 24px; }
 
-/* tira de estatísticas abaixo da colagem */
-.hero-stats { display: flex; gap: 40px; margin-top: 46px; flex-wrap: wrap; }
-.hero-stat { display: flex; flex-direction: column; gap: 4px; }
-.hero-stat .num { font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; color: var(--coral-action); }
-.hero-stat .label { font-size: 0.85rem; color: var(--ink-soft); }
+.hero-photo-badge {
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 45%);
+  max-width: 88%;
+  background: var(--white); border-radius: 999px; padding: 10px 18px;
+  box-shadow: 0 10px 24px rgba(28,43,69,0.2);
+  text-align: center; white-space: normal; z-index: 2;
+}
+.hero-photo-badge strong { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+.hero-photo-badge small { display: block; font-family: var(--font-accent); font-size: 0.64rem; color: var(--ink-soft); font-weight: 600; margin-top: 2px; line-height: 1.25; }
+
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero { padding: 60px 0 48px; }
-  .hero-photos { height: 320px; margin-top: 8px; }
-  .hero-stats { gap: 28px; margin-top: 34px; }
+  .hero { padding: 60px 0 56px; }
+  .hero-photos { height: 320px; margin-top: 40px; }
+}
+@media (max-width: 560px) {
+  .hero-photos { grid-template-columns: 1fr; height: auto; gap: 44px; }
+  .hero-photo-main { height: 220px; }
+  .hero-photo-stack { flex-direction: row; height: 140px; }
+}
+@media (max-width: 480px) {
+  .hero-photo-badge { padding: 7px 14px; }
+  .hero-photo-badge strong { font-size: 1.02rem; }
+  .hero-photo-badge small { font-size: 0.56rem; }
 }
 
 /* --- SEÇÕES --- */
@@ -344,24 +373,25 @@ section { padding: 84px 0; position: relative; }
 /* destaque coral inline (ex.: "8 anos") usado em textos de impacto */
 .highlight { color: var(--coral-action); }
 
-/* --- blobs decorativos reutilizáveis nas quinas das seções --- */
 #quem-somos { overflow: hidden; }
-#quem-somos::before {
-  content: "";
-  position: absolute; left: -90px; bottom: -110px;
-  width: 260px; height: 260px; border-radius: 50%;
-  background: var(--navy);
-  opacity: 0.85;
-  z-index: 0;
+
+/* --- colagem de fotos da seção "Quem somos" --- */
+.quemsomos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start; }
+.quemsomos-photos { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.quemsomos-grid-photos { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; height: 320px; width: 100%; }
+.qs-photo { border-radius: 20px; overflow: hidden; }
+.qs-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qs-photo-stack { display: flex; flex-direction: column; gap: 16px; height: 100%; }
+.qs-photo-stack .qs-photo { flex: 1; min-height: 0; }
+@media (max-width: 860px) {
+  .quemsomos-grid { grid-template-columns: 1fr; }
+  .quemsomos-grid-photos { height: 280px; margin-top: 8px; }
 }
-#quem-somos::after {
-  content: "";
-  position: absolute; right: -90px; bottom: -120px;
-  width: 240px; height: 240px; border-radius: 50%;
-  background: var(--gold);
-  z-index: 0;
+@media (max-width: 560px) {
+  .quemsomos-grid-photos { grid-template-columns: 1fr; height: auto; gap: 14px; }
+  .qs-photo-main { height: 200px; }
+  .qs-photo-stack { flex-direction: row; height: 120px; }
 }
-#quem-somos > .container { z-index: 1; }
 
 /* --- NODE MAP (hub da home) --- */
 .node-map { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -427,9 +457,6 @@ section { padding: 84px 0; position: relative; }
 .project-tag.tag-orange { color: #a84800; background: rgba(240,122,46,0.12); }
 .project-tag.tag-gold   { color: #7d5900; background: rgba(252,177,23,0.16); }
 
-/* --- FILL BADGE --- */
-.fill-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 0.68rem; color: var(--navy-deep); background: #fff7cc; border: 1px solid #e0c400; padding: 3px 9px; border-radius: 999px; margin-top: 10px; width: fit-content; }
-
 /* --- QUOTE BAND --- */
 .quote-band { background: var(--navy-deep); color: var(--white); padding: 66px 0; }
 .quote-band blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.7rem); max-width: 780px; line-height: 1.45; }
@@ -484,7 +511,6 @@ section { padding: 84px 0; position: relative; }
 
 .card-preview { border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--cream); padding: 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
 .card-preview svg { width: 34px; height: 24px; flex-shrink: 0; }
-.demo-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 0.72rem; color: var(--navy-deep); background: #fff7cc; border: 1px solid #e0c400; padding: 5px 10px; border-radius: 999px; margin-bottom: 18px; }
 
 /* --- WHATSAPP FLOAT --- */
 .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 80; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(0,0,0,0.25); transition: transform 0.15s ease; }
@@ -507,20 +533,6 @@ section { padding: 84px 0; position: relative; }
 
 /* --- PAGE HERO (páginas internas) --- */
 .page-hero { background: var(--navy); color: var(--white); padding: 60px 0 50px; position: relative; overflow: hidden; }
-.page-hero::before {
-  content: "";
-  position: absolute; right: -70px; top: -90px;
-  width: 220px; height: 220px; border-radius: 50%;
-  background: var(--coral);
-  opacity: 0.9;
-}
-.page-hero::after {
-  content: "";
-  position: absolute; left: -60px; bottom: -100px;
-  width: 200px; height: 200px; border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.85;
-}
 .page-hero .container { z-index: 1; }
 .page-hero h1 { color: var(--white); margin-top: 12px; font-size: clamp(1.9rem, 3.8vw, 2.6rem); }
 .page-hero p { color: rgba(255,255,255,0.82); margin-top: 12px; max-width: 62ch; }
@@ -549,12 +561,8 @@ body.high-contrast .hero,
 body.high-contrast .spotlight,
 body.high-contrast .page-hero,
 body.high-contrast .site-header { background: #000000 !important; }
-body.high-contrast .spotlight::before,
-body.high-contrast .spotlight::after,
-body.high-contrast .page-hero::before,
-body.high-contrast .page-hero::after,
-body.high-contrast #quem-somos::before,
-body.high-contrast #quem-somos::after { display: none !important; }
+body.high-contrast .blob,
+body.high-contrast .spotlight-doodle { display: none !important; }
 body.high-contrast .nav-links a,
 body.high-contrast .brand,
 body.high-contrast .nav-toggle { color: #ffffff !important; }
@@ -565,8 +573,9 @@ body.high-contrast .project-card { border-top-color: #000000 !important; }
 @media print {
   .hero, .spotlight, .page-hero, .site-header { background: white !important; }
   .hero h1, .hero p, .spotlight-body h2, .spotlight-body p, .page-hero h1, .page-hero p, .nav-links a, .brand { color: black !important; }
-  .spotlight::before, .spotlight::after, .page-hero::before, .page-hero::after, #quem-somos::before, #quem-somos::after { display: none !important; }
+  .blob, .spotlight-doodle { display: none !important; }
   .section-alt { background: white !important; }
   .project-card { border-top-color: #000 !important; }
   .whatsapp-float { display: none; }
 }
+
