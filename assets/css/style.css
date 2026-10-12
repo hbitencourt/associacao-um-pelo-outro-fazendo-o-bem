@@ -239,7 +239,7 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 .spotlight .blob-bl { bottom: -26px; left: -34px; width: 150px; }
 #quem-somos .blob-bl { bottom: -18px; left: -28px; width: 150px; }
 #quem-somos .blob-br { bottom: -18px; right: -26px; width: 140px; }
-.page-hero .blob-tr { top: -26px; right: -18px; width: 130px; transform: rotate(180deg); }
+.page-hero .blob-tr { top: -26px; right: -18px; width: 130px; transform: scaleY(-1); }
 .page-hero .blob-bl { bottom: -26px; left: -18px; width: 120px; }
 
 /* --- SPOTLIGHT (carrossel) — cartão azul royal bem arredondado sobre fundo creme --- */
