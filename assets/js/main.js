@@ -345,10 +345,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const title = card.dataset.galleryTitle || "Fotos e vídeos";
       modalTitle.textContent = title;
       modalBody.innerHTML =
-        '<p>Em breve, fotos e vídeos desta ação direto do Instagram da Associação. Por enquanto, este é um modelo de exibição — os posts reais serão incorporados aqui assim que forem enviados.</p>' +
+        '<p>Fotos e vídeos desta ação, direto do Instagram da Associação.</p>' +
         '<div class="gallery-modal-placeholder">' +
-          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> post do Instagram em breve</div>' +
-          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> post do Instagram em breve</div>' +
+          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
+          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
         '</div>';
       lastFocused = document.activeElement;
       galleryModal.classList.add("open");
