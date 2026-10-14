@@ -641,22 +641,124 @@ body:has(.nav-links a[href="contato.html"].active) .page-hero  { background: var
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 
 /* --- ALTO CONTRASTE --- */
+/* Esquema único e consistente: fundo preto, texto branco,
+   destaques/links em amarelo, bordas brancas. Aplicado ao site
+   inteiro para evitar blocos alternados e texto escuro sobre escuro. */
 body.high-contrast {
-  --surface: #ffffff; --surface-alt: #f2f2f2; --ink-soft: #1a1a1a; --border: rgba(0,0,0,0.4);
-  --coral: #8b0033; --coral-action: #8b0033; --coral-dark: #6a0026; --navy: #000080; --navy-deep: #000033; --gold: #cc9900;
+  --cream: #000000; --cream-deep: #000000;
+  --white: #000000;
+  --surface: #000000; --surface-alt: #000000;
+  --ink: #ffffff; --ink-soft: #ffffff; --black: #ffffff;
+  --border: #ffffff;
+  --navy: #000000; --navy-deep: #000000;
+  --coral: #ffe600; --coral-action: #ffe600; --coral-dark: #ffe600; --coral-light: #ffe600;
+  --gold: #ffe600; --gold-dark: #ffe600;
+  --teal: #ffe600; --teal-deep: #000000; --purple: #ffe600; --orange: #ffe600;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
-body.high-contrast { background: #ffffff; }
+
+/* fundos de blocos -> preto, texto -> branco */
+body.high-contrast,
 body.high-contrast .hero,
 body.high-contrast .spotlight,
 body.high-contrast .page-hero,
-body.high-contrast .site-header { background: #000000 !important; }
+body.high-contrast .site-header,
+body.high-contrast .section-alt,
+body.high-contrast .site-footer,
+body.high-contrast .spotlight-slide,
+body.high-contrast .form-card,
+body.high-contrast .form-card.section-dark,
+body.high-contrast .project-card,
+body.high-contrast .node-card,
+body.high-contrast .faq-item,
+body.high-contrast .pix-box,
+body.high-contrast .pix-qr,
+body.high-contrast .amount-btn,
+body.high-contrast .project-media,
+body.high-contrast .node-icon,
+body.high-contrast .a11y-bar { background: #000000 !important; }
+
+/* todos os textos legíveis em branco */
+body.high-contrast,
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3,
+body.high-contrast h4, body.high-contrast p, body.high-contrast span,
+body.high-contrast li, body.high-contrast a, body.high-contrast label,
+body.high-contrast summary, body.high-contrast strong, body.high-contrast small,
+body.high-contrast .brand, body.high-contrast .nav-links a,
+body.high-contrast .nav-toggle, body.high-contrast .lead,
+body.high-contrast .spotlight-body h2, body.high-contrast .spotlight-body p,
+body.high-contrast .page-hero h1, body.high-contrast .page-hero p,
+body.high-contrast .node-card p, body.high-contrast .faq-item p,
+body.high-contrast .footer-grid, body.high-contrast .footer-grid a,
+body.high-contrast .pix-key, body.high-contrast .pix-qr-label { color: #ffffff !important; }
+
+/* destaques, acentos e links de ação em amarelo */
+body.high-contrast .eyebrow,
+body.high-contrast .highlight,
+body.high-contrast .accent,
+body.high-contrast .hero h1 em,
+body.high-contrast .node-link,
+body.high-contrast .project-gallery-hint,
+body.high-contrast .footer-grid ul li a:hover,
+body.high-contrast a:hover { color: #ffe600 !important; }
+
+/* bordas brancas em cartões, inputs, divisórias */
+body.high-contrast .project-card,
+body.high-contrast .node-card,
+body.high-contrast .faq-item,
+body.high-contrast .form-card,
+body.high-contrast .amount-btn,
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select,
+body.high-contrast .site-header,
+body.high-contrast .spotlight-slide {
+  border-color: #ffffff !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+body.high-contrast .project-card { border-top: 4px solid #ffe600 !important; }
+
+/* campos de formulário */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select { background: #000000 !important; color: #ffffff !important; }
+body.high-contrast ::placeholder { color: #cccccc !important; }
+
+/* botões: amarelo com texto preto, borda branca */
+body.high-contrast .btn,
+body.high-contrast .btn-primary,
+body.high-contrast .btn-gold,
+body.high-contrast .btn-white,
+body.high-contrast .pix-copy-btn,
+body.high-contrast .amount-btn.selected,
+body.high-contrast .pay-tab.active {
+  background: #ffe600 !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+body.high-contrast .pay-tab.active { border-bottom-color: #ffe600 !important; }
+
+/* ícones acompanham o texto */
+body.high-contrast .icon,
+body.high-contrast .node-icon .icon { color: #ffffff !important; stroke: #ffffff !important; }
+
+/* botão flutuante do WhatsApp mantém contraste proprio mas com borda */
+body.high-contrast .whatsapp-float { border: 2px solid #ffffff !important; }
+
+/* esconder decoracoes que nao somam no modo contraste */
 body.high-contrast .blob,
 body.high-contrast .spotlight-doodle { display: none !important; }
-body.high-contrast .nav-links a,
-body.high-contrast .brand,
-body.high-contrast .nav-toggle { color: #ffffff !important; }
-body.high-contrast .btn-primary { background: #000000 !important; color: #ffffff !important; }
-body.high-contrast .project-card { border-top-color: #000000 !important; }
+
+/* foco bem visivel */
+body.high-contrast a:focus-visible,
+body.high-contrast button:focus-visible,
+body.high-contrast input:focus-visible,
+body.high-contrast textarea:focus-visible {
+  outline: 3px solid #ffe600 !important;
+  outline-offset: 2px !important;
+}
 
 /* --- PRINT --- */
 @media print {
