@@ -58,6 +58,7 @@
   <img class="blob blob-tr blob-fit" src="assets/img/blob-rosa-canto.png" alt="" aria-hidden="true">
   <img class="blob blob-bl blob-flip" src="assets/img/blob-amarelo.png" alt="" aria-hidden="true">
   <div class="container">
+    <span class="hero-icon" aria-hidden="true">💛</span>
     <span class="eyebrow" style="color:var(--gold);">Doações</span>
     <h1>Sua doação apoia nossas ações de cuidado.</h1>
     <p>Escolha como contribuir: PIX copia e cola rápido e prático ou cartão sem burocracia. Sua doação apoia as ações da Associação.</p>
@@ -86,7 +87,15 @@
       </div>
 
       <div id="panel-pix" class="pay-panel active" role="tabpanel">
-        <p style="color:var(--ink-soft); font-size:0.9rem; margin-bottom:14px;">Copie a chave abaixo e cole no aplicativo do seu banco, na opção PIX.</p>
+        <p style="color:var(--ink-soft); font-size:0.9rem; margin-bottom:14px;">Escaneie o QR Code com o app do seu banco ou copie a chave e cole na opção PIX.</p>
+
+        <div class="pix-qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=43.583.027%2F0001-67"
+               width="180" height="180"
+               alt="QR Code PIX da Associação Um Pelo Outro Fazendo o Bem (chave CNPJ 43.583.027/0001-67)">
+          <span class="pix-qr-label">Aponte a câmera do seu banco para o QR Code</span>
+        </div>
+
         <div class="pix-box">
           <span class="pix-key" id="pix-key">43.583.027/0001-67 (CNPJ, chave PIX da Associação)</span>
           <button type="button" class="pix-copy-btn" id="pix-copy-btn">Copiar chave</button>
