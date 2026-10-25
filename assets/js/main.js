@@ -341,15 +341,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalBody = document.getElementById("gallery-modal-body");
     let lastFocused = null;
 
+    /* posts reais do Instagram por ação (vão sendo adicionados conforme
+       a Associação envia o material); quem ainda não tem entrada aqui
+       mostra o placeholder genérico abaixo. */
+    function igEmbed(reelId, author) {
+      author = author || "Associação Um Pelo Outro Fazendo o Bem (@um_pelo_outro_fazendo_o_bem)";
+      const url = "https://www.instagram.com/reel/" + reelId + "/?utm_source=ig_embed&amp;utm_campaign=loading";
+      return '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="' + url + '" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%;"><div style="padding:16px;"><a href="' + url + '" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">Ver esse post no Instagram</a><p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="' + url + '" style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Um post compartilhado por ' + author + '</a></p></div></blockquote>';
+    }
+
+    const galleryEmbeds = {
+      "pascoa-solidaria": [igEmbed("DW1ueP_kfI7")],
+      "cozinha-solidaria": [igEmbed("DMZJxAlxQt2"), igEmbed("DekTC7GPlLg")],
+      "ginastica": [igEmbed("DO_tII_D9Hc")],
+      "farmacia-solidaria": [igEmbed("DZANVE9xd4f")],
+      "natal-solidario": [igEmbed("DSIxO7qAatG", "Doutor Heron | Chefe de Gabinete 💡 (@doutorheron)")]
+    };
+
     function openGallery(card) {
       const title = card.dataset.galleryTitle || "Fotos e vídeos";
+      const embeds = galleryEmbeds[card.dataset.gallery];
       modalTitle.textContent = title;
-      modalBody.innerHTML =
-        '<p>Fotos e vídeos desta ação, direto do Instagram da Associação.</p>' +
-        '<div class="gallery-modal-placeholder">' +
-          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
-          '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
-        '</div>';
+      if (embeds && embeds.length) {
+        modalBody.innerHTML =
+          '<p>Fotos e vídeos desta ação, direto do Instagram da Associação.</p>' +
+          '<div class="gallery-modal-embeds">' + embeds.join("") + '</div>';
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        }
+      } else {
+        modalBody.innerHTML =
+          '<p>Fotos e vídeos desta ação, direto do Instagram da Associação.</p>' +
+          '<div class="gallery-modal-placeholder">' +
+            '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
+            '<div class="gallery-modal-placeholder-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Post do Instagram</div>' +
+          '</div>';
+      }
       lastFocused = document.activeElement;
       galleryModal.classList.add("open");
       galleryModal.setAttribute("aria-hidden", "false");

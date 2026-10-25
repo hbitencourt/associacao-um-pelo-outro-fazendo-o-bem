@@ -237,20 +237,20 @@ textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:
 /* --- formas orgânicas decorativas (elementos de canto) --- */
 .blob { position: absolute; z-index: 0; pointer-events: none; user-select: none; }
 .blob-flip { transform: scaleX(-1); }
-.spotlight .blob-br { bottom: -20px; right: -80px; width: 150px; transform: rotate(-18deg); }
+.spotlight .blob-br { bottom: -20px; right: -45px; width: 150px; transform: rotate(-18deg); }
 .spotlight .blob-bl { bottom: -26px; left: -34px; width: 150px; }
 #quem-somos .blob-bl { bottom: -18px; left: -28px; width: 150px; }
 #quem-somos .blob-br { bottom: -18px; right: -26px; width: 140px; }
-.page-hero .blob-tr { top: -26px; right: -18px; width: 130px; transform: scaleY(-1); }
+.page-hero .blob-tr { top: -26px; right: -18px; width: 130px; transform: scaleX(-1) scaleY(-1); }
 .page-hero .blob-tr.blob-fit { transform: none; }
 .page-hero .blob-bl { bottom: -26px; left: -18px; width: 120px; }
 /* blobs do bloco de impacto (hero) e do mapa de navegação */
 .hero { overflow: hidden; }
-.hero .blob-hero-tl { top: -40px; left: -70px; width: 170px; transform: rotate(12deg); }
-.hero .blob-hero-br { bottom: -60px; right: -70px; width: 200px; transform: rotate(-10deg); }
+.hero .blob-hero-tl { top: -40px; left: -70px; width: 170px; transform: rotate(180deg); }
+.hero .blob-hero-br { bottom: -30px; right: -70px; width: 200px; transform: scaleX(-1); }
 .node-section { position: relative; overflow: hidden; }
-.node-section .blob-node-tr { top: -40px; right: -60px; width: 150px; transform: scaleY(-1) rotate(8deg); }
-.node-section .blob-node-bl { bottom: -50px; left: -60px; width: 170px; transform: rotate(-14deg); }
+.node-section .blob-node-tr { top: -15px; right: -35px; width: 150px; transform: scaleY(-1) rotate(8deg); }
+.node-section .blob-node-bl { bottom: -50px; left: -60px; width: 170px; transform: scaleX(-1) rotate(-14deg); }
 
 /* --- SPOTLIGHT (carrossel) — cartão azul royal bem arredondado sobre fundo creme --- */
 .spotlight {
@@ -588,6 +588,8 @@ section { padding: 84px 0; position: relative; }
   font-size: 0.78rem; text-align: center; padding: 14px;
 }
 .gallery-modal-placeholder-item .icon { width: 26px; height: 26px; color: var(--coral-action); }
+.gallery-modal-embeds { margin-top: 18px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.gallery-modal-embeds iframe { max-width: 100%; }
 body.gallery-open { overflow: hidden; }
 @media (max-width: 560px) {
   .gallery-modal-dialog { padding: 36px 24px; }
